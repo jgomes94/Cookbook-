@@ -1,0 +1,50 @@
+  <!-- Credit Line Filters -->
+<div class="tabs table filter-selector contract-table-header">
+	<div href="" class="t-cell tab app hide-phone-only">{{::$root.Labels.PP_Application}}</div>
+	<div href="" class="t-cell tab name hide-phone-only">{{::$root.Labels.PP_Client}}</div>
+	<div href="" class="t-cell tab rent hide-phone-only">{{::$root.Labels.PP_Rent}}</div>
+	<div href="" class="t-cell tab status hide-phone-only">{{::$root.Labels.PP_Status}}</div>
+	<!--a href="" class="t-cell tab arrow">&nbsp;</a-->
+	<div class="t-cell tab filter text-right">
+      <div class=" styled-select drop">
+      <select ng-change="vm.filteredApp=vm.getFilteredApps(vm.applications, vm.searchString)" ng-model="vm.searchOptions.selected" ng-options="option.name for option in vm.searchOptions.available track by option.name">
+      </select>        
+      <svg class="arrow-down-icon" data-role="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-down"></use></svg>
+      </div>
+    </div>
+</div>
+<div class="items" ng-hide="vm.filtered_apps_size==0 || vm.applications.length == 0"  infinite-scroll="vm.showMoreCards(arg1)">
+	<div ng-repeat="app in vm.filteredApp | limitTo: vm.numberOfCards" class="item contract-item" ng-class="{'approved': app.isContract, 'pending':app.isArreas,'declined':app.isLawsuit}" ng-click="vm.goToCreditPanelState(app)">
+	  <div class="contract-main-info">
+	    <div class="contract-number">
+	      <a>{{::app.Name}}</a>
+	    </div>
+	    <div class="contract-client">
+	      <span class="name">{{::app.AccClient__r.Name | capitalize}}</span>
+	      <span class="nif">{{::app.AccClient__r.NIF__c}}</span> 
+	    </div>
+	    <div class="contract-terms">
+	      <div class="contract-rent">{{::app.Payment_Amount__c | currency}}</div>
+	      <div class="status">
+	        <span class="contract-status">{{::app.status}}</span>
+	      </div>
+	    </div>
+	    <div class="show-additional" ng-if = "app.Status__c == 'Contract - Running'">
+	      <a class="item-link text-center">
+	        <svg class="arrow-icon" data-role=image>
+    			<use xlink:href="#arrow-next"></use>
+    		</svg>
+	      </a>
+	    </div>
+	  </div>
+	</div>
+ 	<span class="end-of-list"></span>
+</div>
+<div ng-show="vm.filtered_apps_size == 0 || vm.applications.length == 0" class="message-wrapper">
+	<div class="message-body text-center">
+		<h2>{{::$root.Labels.PP_Dash_NoResultFound}}</h2>		
+		<p ng-show="vm.applications.length == 0">{{::$root.Labels.PP_Dash_NoContracts}}</p>
+	</div>
+</div>
+
+
