@@ -1,12 +1,12 @@
-<app-header></app-header>
-<app-recipebook></app-recipebook>
-<app-shoppinglist></app-shoppinglist>
-<!-- <app-recipebook></app-recipebook>
-
+<app-header (headerClick)="processHeader($event)"></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h2>I am working!! :D</h2>
+
+      <app-recipebook *ngIf="showShoppingList"></app-recipebook>
+      <app-shoppinglist *ngIf="showRecipes"></app-shoppinglist>
+
     </div>
   </div>
-</div> -->
+
+</div>

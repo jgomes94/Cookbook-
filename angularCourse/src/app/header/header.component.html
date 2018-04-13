@@ -6,10 +6,10 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Shopping-List
+      <a id="shopping-list" class="nav-item nav-link active" href="#" (click)="clickEvent($event.currentTarget.id)">Shopping-List
         <span class="sr-only">(current)</span>
       </a>
-      <a class="nav-item nav-link" href="#">Recipes</a>
+      <a id="recipes" class="nav-item nav-link" href="#" (click)="clickEvent($event.currentTarget.id)" #recipes>Recipes</a>
     </div>
   </div>
 </nav>
