@@ -1,0 +1,9 @@
+.pull-left{
+    display:inline-flex; 
+    justify-content: space-around; 
+    width: 90%;
+}
+.img-responsive{
+    max-height: 75px; 
+    margin-left: 50%
+}
