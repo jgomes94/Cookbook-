@@ -1,7 +1,7 @@
+
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
 import { AppComponent } from './app.component';
 import { ShoppinglistComponent } from './shoppinglist/shoppinglist.component';
 import { RecipebookComponent } from './recipebook/recipebook.component';
@@ -12,6 +12,8 @@ import { ShoppListEditComponent } from './shoppinglist/shopp-list-edit/shopp-lis
 import { HeaderComponent } from './header/header.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppinglistService } from './shoppinglist/shoppinglist.service';
+import { AppRoutingModule} from './app-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -26,9 +28,15 @@ import { ShoppinglistService } from './shoppinglist/shoppinglist.service';
     DropdownDirective,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
+
   providers: [ShoppinglistService],
   bootstrap: [AppComponent]
+
 })
-export class AppModule { }
+
+export class AppModule {
+
+}
