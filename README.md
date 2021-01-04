@@ -1,10 +1,8 @@
-Amazing web app built on Angular 5. 
+Web app built on Angular 5. 
 
-The ideia is to have a Recipe and a shopping list in the same App.
-
+The ideia is to have a Recipe (Containing Instructions + Ingredients) and associate a shopping list to be able to cook the recipes.
 
 to run this app you need to:
-1 - npm install.
-2-  npm install bootstrap.
-
-to start the App -> ng start
+1 - npm install
+2 - npm install bootstrap
+3 - ng start
